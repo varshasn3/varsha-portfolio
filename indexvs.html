@@ -1,0 +1,880 @@
+<!DOCTYPE html>
+<html lang="en-gb" dir="ltr">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Varsha Sundararaman</title>
+    <!-- Preload Fonts -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:wght@100;200;300;400;500;600;700;800;900&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <style>
+        body {
+            font-family: 'DM Sans', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #FFFFFF;
+            overflow-x: hidden; /* Prevent horizontal overflow */
+        }
+        .container {
+            width: 100%;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 80px; /* Increased padding for larger margins */
+        }
+        header {
+            padding: 20px;
+            background-color: transparent;
+            color: #F4F4F4;
+            text-align: center;
+            width: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+        }
+        .branding {
+            display: flex;
+            align-items: center;
+            margin-right: auto;
+            font-weight: 400;
+            opacity: 0;
+            animation: fadeIn 1s ease-in 1s forwards;
+        }
+        .branding span {
+            margin: 0 5px;
+            color: #FFFFFF;
+            font-family: 'DM Sans', serif;
+            font-weight: 400;
+            font-size: 1.1rem;
+        }
+        nav {
+            display: flex;
+            font-family: 'DM Sans', serif;
+            font-weight: regular;
+            align-items: center;
+            opacity: 0;
+            animation: fadeIn 1s ease-in 1s forwards;
+        }
+        nav a {
+            color: #FFFFFF;
+            font-family: 'DM Sans', serif;
+            text-align: center;
+            padding: 14px 20px;
+            text-decoration: none; /* Remove underline */
+            font-size: 1rem;
+            display: inline-block;
+            opacity: 0;
+            animation: fadeIn 1s ease-in 1s forwards;
+        }
+        nav a:hover {
+            color: #000000;
+        }
+        .content-container {
+            display: flex;
+            align-items: center;
+            background: #000000;
+            justify-content: flex-end;
+            height: 100vh;
+            padding: 0;
+            margin: 0;
+            position: relative;
+            background-image: url('C:/Users/Varsha/Downloads/Varsha_Sundararaman_Headshot_Landscape_More_Seamless.jpg');
+            background-size: cover;
+            background-position: top;
+            background-position-y: -50px;
+            overflow: hidden; /* Prevent background image overflow */
+            opacity: 0;
+            animation: fadeIn 1s ease-in 0.2s forwards;
+        }
+        .image-container {
+            display: none;
+            background: #000000;
+            opacity: 0;
+            animation: fadeIn 1s ease-in 0.2s forwards;
+        }
+        .text-container {
+            flex: 1;
+            max-width: 50%;
+            text-align: left;
+            margin: 0;
+            margin-top: 0;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            box-sizing: border-box;
+            color: white;
+            padding-right: 20px;
+            opacity: 0;
+            animation: fadeIn 1s ease-in forwards;
+        }
+        .sppb-addon-title {
+            font-weight: 200;
+            font-family: 'DM Serif Display', bold;
+            font-size: 45px;
+            line-height: 62px;
+            letter-spacing: 0;
+            margin: 0 0 0;
+            margin-left: 0;
+            margin-right: 30px;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            opacity: 0;
+            animation: fadeIn 1s ease-in 1s forwards;
+        }
+        .sppb-addon-content {
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 28px;
+            margin: 0 0 0;
+            margin-top: 20px;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+        .highlight {
+            color: #FFFFFF;
+            font-family: 'DM Serif Display', regular;
+            margin: 10px;
+            line-height: 62px;
+            font-size: 45px;
+            font-weight: 400;
+            white-space: pre-wrap;
+            word-wrap: break-word;            
+            opacity: 0;
+            animation: fadeIn 2s ease-in 2s forwards;
+        }
+        .highlight-2 {
+            color: #FFFFFF;
+            font-family: 'DM Serif Display', regular;
+            margin: 10px;
+            line-height: 62px;
+            font-size: 45px;
+            font-weight: 400;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            opacity: 0;
+            animation: fadeIn 2.5s ease-in 2.5s forwards;
+        }
+        .highlight-3 {
+            color: #FFFFFF;
+            font-family: 'DM Serif Display', regular;
+            margin: 10px;
+            line-height: 62px;
+            font-size: 45px;
+            font-weight: 400;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            opacity: 0;
+            animation: fadeIn 3s ease-in 3s forwards;
+        }
+        .scroll-arrow.white {
+            position: absolute;
+            bottom: 60px;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: bounce 2s infinite;
+        }
+        .scroll-arrow.white a {
+            text-decoration: none;
+            color: #FFFFFF;
+            font-size: 2rem;
+            animation: bounce 2s infinite;
+        }
+        .scroll-arrow.black {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: bounce 2s infinite;
+        }
+        .scroll-arrow.black a {
+            text-decoration: none;
+            color: #000000;
+            font-size: 2rem;
+            animation: bounce 2s infinite; 
+        }
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-10px);
+            }
+            60% {
+                transform: translateY(-5px);
+            }
+        }
+        .centered-section {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0;
+            background: #f8f8f8; /* Change to your desired gray color */
+            height: 100vh;
+            position: relative;
+            opacity: 0;
+            animation: fadeIn 1s ease-in 1s forwards;
+        }
+        .left-container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-end;
+            width: 60%;
+            padding: 40px 40px;
+            color: #000000;
+            text-align: right;
+            position: relative;
+            opacity: 0;
+            animation: fadeIn 1s ease-in 1s forwards;
+        }
+        .left-container .title {
+            font-size: 50px;
+            font-family: 'DM Serif Display', sans-serif;
+            margin-bottom: 20px;
+            margin-right: 20px;
+            font-weight: 300;
+            line-height: 50px;
+            z-index: 1;
+        }
+        .left-container .subtitle {
+            font-size: 1rem;
+            margin-bottom: 15px;
+            width: 100%;
+            font-family: 'DM Sans', sans-serif;
+            font-weight: 400;
+            line-height: 30px;
+        }
+        .left-container .resume-button {
+            padding: 10px 20px;
+            background: #000000;
+            color: #FFFFFF;
+            border: 2px solid #000000;
+            border-radius: 50px;
+            text-decoration: none; 
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+            font-family: 'DM Sans';
+            transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+            margin-bottom: 20px;
+        }
+        .left-container .resume-button:hover {
+            background-color: #FFFFFF;
+            color: #000000;
+            border-color: #FFFFFF;
+            text-decoration: none;
+        }
+        .left-container .resume-button .arrow {
+            margin-left: 5px;
+            font-size: 1.5rem;
+        }
+        .right-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 40%;
+            height: 100%;
+            padding: 40px 20px; /* Ensure this matches the padding of the left-container */
+            opacity: 0;
+            animation: fadeIn 1s ease-in 0.5s forwards;
+        }
+        .companies-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-gap: 20px;
+            background-color: #FFFFFF; 
+            padding: 20px;
+            border-radius: 0;
+            max-width: 400px;
+        }
+        .company-logo img {
+            width: 80%;
+            max-width: 150px;
+            height: auto;
+            filter: grayscale(100%);
+            transition: filter 0.3s;
+            display: block;
+            margin: 0 auto;
+        }
+        .company-logo img:hover {
+            filter: grayscale(0%);
+        }
+        #section-1 {
+            background-color: black;
+            min-height: 88vh;
+        }
+        #section-2 {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 75vh;
+            padding: 40px;
+            background-color: #000000;
+            border-radius: 0;
+            margin-top: -40px;
+            z-index: 1;
+            position: relative;
+            width: 100%;
+            max-width: 1100px;
+            margin: -40px auto 0 auto;
+        }
+        .quick-facts-header {
+            font-family: 'DM Serif Display', serif;
+            font-size: 45px;
+            font-weight: 700;
+            color: #FFFFFF;
+            text-align: center;
+            margin-bottom: 16px;
+            width: 100%;
+        }
+        .quick-facts-subheader {
+            font-family: 'DM Serif Display', serif;
+            font-size: 2rem;
+            font-weight: 400;
+            color: #FFFFFF;
+            text-align: center;
+            margin-bottom: 10px;
+            width: 100%;
+        }
+        .quick-facts-divider {
+            width: 0;
+            height: 2px;
+            background: #ADD8E6;
+            margin-bottom: 40px;
+            transition: width 1s ease-in-out;
+        }
+        .quick-facts-divider.visible {
+            width: 100%; /* Transition to full width */
+        }
+        .quick-facts-container {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+            gap: 40px;
+        }
+        .quick-fact {
+            background-color: #000000;
+            border-radius: 8px;
+            padding: 0px;
+            text-align: center;
+            width: 20%;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+        .quick-fact.visible {
+            opacity: 1;
+        }
+        .quick-fact h2 {
+            font-family: 'DM Serif Display', serif;
+            font-size: 1.5rem;
+            font-weight: 200px;
+            color: #FFFFFF;
+            margin-bottom: 5px;
+        }
+        .quick-fact p {
+            font-family: 'DM Sans', serif;
+            font-size: 1rem;
+            color: #FFFFFF;
+            margin: 3px 0 0;
+        }
+        #section-3 {
+            display: flex;
+            height: 88vh;
+            margin-top: 0px;
+            position: relative;
+            z-index: 0;
+            background-color: #FFFFFF; 
+            color: #000000;
+        }
+        #section-4 {
+            display: flex;
+            height: 88vh;
+            margin-top: 0px;
+            position: relative;
+            z-index: 0;
+            background-color: #000000; 
+            color: #FFFFFF;
+            padding: 40px; /* Ensure consistent padding */
+        }
+        .section-4-left-container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center; /* Center items vertically */
+            align-items: flex-end;
+            width: 50%;
+            color: #FFFFFF;
+            text-align: right;
+            position: relative;
+        }
+        .section-4-left-container .gif-container {
+            position: relative;
+            z-index: 2;
+            margin-bottom: 20px;
+        }
+        .section-4-left-container .gif-caption {
+            font-family: 'DM Sans', serif;
+            font-size: 15px;
+            color: #FFFFFF;
+            text-align: center;
+            margin-top: 10px;
+        }
+        .right-container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center; /* Center items vertically */
+            align-items: flex-start;
+            width: 50%;
+            color: #FFFFFF;
+            text-align: left;
+            position: relative;
+        }
+        .right-content .title {
+            font-size: 50px;
+            font-family: 'DM Serif Display', sans-serif;
+            margin-bottom: 20px;
+            font-weight: 300;
+            line-height: 50px;
+            z-index: 1;
+        }
+        .right-content .p {
+            font-family: 'DM Sans', sans-serif;
+            margin-bottom: 20px;
+            z-index: 1;
+            font-size: 1rem;
+            font-weight: 400;
+            line-height: 30px;
+            max-width: 100%; /* Ensure the paragraphs do not extend beyond the headers */
+        }
+        @media (max-width: 768px) {
+            .right-container {
+                max-width: 100%;
+                padding: 20px;
+            }
+        }
+        @keyframes borderAnimation {
+            0% {
+                border-color: transparent;
+            }
+            50% {
+                border-color: #000000;
+            }
+            100% {
+                border-color: transparent;
+            }
+        }
+        .hero-buttons {
+            display: flex;
+            align-items: center; /* Aligns buttons with the text */
+            gap: 10px; /* Sets the gap between buttons */
+            margin-top: 20px;
+            opacity: 0;
+            animation: fadeIn 1s ease-in 2s forwards;
+        }
+        .hero-buttons a {
+            text-decoration: none; /* This removes the purple underline */
+        }
+        .hero-buttons .btn {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 50px;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+            text-align: center; /* Center text within buttons */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .hero-buttons .btn-primary {
+            background-color: #000000;
+            color: #FFFFFF;
+            border: 2px solid #000000;
+            transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+        }
+        .hero-buttons .btn-primary:hover {
+            background-color: #FFFFFF;
+            color: #000000;
+            border-color: #FFFFFF;
+        }
+        .hero-buttons .btn-secondary {
+            background-color: transparent;
+            color: #FFFFFF;
+            border: 2px solid #FFFFFF;
+        }
+        .hero-buttons .btn-secondary:hover {
+            background-color: #F6f6f6;
+            color: #000000;
+        }
+        .btn .arrow {
+            margin-left: 5px;
+            font-size: 1.5rem;
+        }
+        #section-5 {
+            display: flex;
+            height: 88vh;
+            margin-top: 0px;
+            position: relative;
+            z-index: 0;
+            background-color: #FFFFFF; 
+            color: #000000;
+        }
+        .section-5-left-container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center; /* Center items vertically */
+            align-items: right;
+            width: 50%;
+            color: #000000;
+            text-align: right;
+            position: relative;
+        }
+        .section-5-left-container .title {
+            font-size: 50px;
+            font-family: 'DM Serif Display', sans-serif;
+            margin-bottom: 20px;
+            font-weight: 300;
+            line-height: 50px;
+            z-index: 1;
+        }
+        .section-5-left-container .subtitle {
+            font-size: 1rem;
+            font-family: 'DM Sans', sans-serif;
+            z-index: 1;
+            font-weight: 400;
+            line-height: 30px;
+        }
+        .section-5-right-container {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            width: 50%;
+            padding: 0px;
+            color: #000000;
+            position: relative;
+        }
+        .section-5-right-container .content {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 1rem;
+            line-height: 0px;
+            z-index: 1;
+	    justify-content: left;
+	    text-align: left;
+	    padding: 0px;
+        }
+        .project {
+            display: flex;
+            flex-direction: column;
+            align-items: left;
+            background-color: #f9f9f9;
+            padding: 20px;
+            width: 100%;
+            box-sizing: border-box;
+            transition: transform 0.3s ease-in-out;
+            position: relative; /* Make the container relative for absolute positioning of the button */
+            overflow: hidden; /* Ensure content doesn't overflow */
+        }
+        .project img {
+            width: 100%;
+            height: auto;
+            cursor: pointer;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-in-out, opacity 0.3s;
+        }
+        .project:hover img {
+            transform: scale(1.05); /* Enlarge image on hover */
+        }
+        .view-story-button {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%); /* Center the button over the image */
+            padding: 10px 20px;
+            background-color: #000000;
+            color: #FFFFFF;
+            border: 2px solid #000000;
+            border-radius: 50px;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 1rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out, background-color 0.3s, color 0.3s, border-color 0.3s;
+        }
+        .view-story-button:hover {
+            background-color: #FFFFFF;
+            color: #000000;
+            border-color: #FFFFFF;
+        }
+        .view-story-button .arrow {
+            font-size: 1.5rem;
+        }
+        .project:hover .view-story-button {
+            opacity: 1; /* Show button only on hover */
+        }
+        @keyframes textFadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+        .text-container, .left-container .title, .left-container .subtitle, .right-content .title, .right-content .p {
+            opacity: 0;
+            animation: textFadeIn 1s ease-in forwards;
+        }
+        .project h3 {
+            font-family: 'DM Sans', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #000000;
+            margin: 0px 0;
+            text-align: left;
+            text-decoration: none; /* Ensure no underline */
+        }
+        .project p {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 1rem;
+            font-weight: 400;
+            color: #000000;
+            margin: 5px 0 10px;
+            text-align: left;
+            text-decoration: none; /* Ensure no underline */
+        }
+        /* Footer CSS */
+        footer {
+            background-color: #FFFFFF;
+            padding: 20px 0;
+            color: #000000;
+        }
+        footer .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        footer .branding span {
+            color: #000000;
+            font-family: 'DM Sans', serif;
+            font-weight: 400;
+            font-size: 1.1rem;
+        }
+        footer .nav {
+            display: flex;
+            align-items: center;
+        }
+        footer .nav a {
+            color: #000000;
+            font-family: 'DM Sans', serif;
+            text-align: center;
+            padding: 0 10px;
+            text-decoration: none;
+            font-size: 1rem;
+        }
+        footer .nav a:hover {
+            color: #ADD8E6;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container" style="display: flex; justify-content: space-between; align-items: center;">
+            <div class="branding">
+                <span><b>Varsha Sundararaman</b> | Product Manager</span>
+            </div>
+            <nav>
+                <a href="#">Home</a>
+                <a href="#">Resume</a>
+                <a href="file:///C:/Users/Varsha/OneDrive/Documents/Personal/Personal%20Website/portfoliovs.html">Portfolio</a>
+                <a href="#contact">Contact</a>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <section id="section-1">
+            <div class="content-container">
+                <div class="text-container">
+                    <h2 class="sppb-addon-title">I <span class="highlight">design,</span><span class="highlight-2">develop,</span><span class="highlight-3">and deliver</span>digital products that connect with the human experience.</h2>
+                    <div class="hero-buttons">
+                        <a href="#section-2" onclick="smoothScrollToSection(event, '#section-2')"><button class="btn btn-primary">TL ; DR<span class="arrow">&#8595;</span></button></a>
+                        <a href="https://www.linkedin.com/in/varshasundararaman/"><button class="btn btn-secondary">LinkedIn</button></a>
+                        <a href="mailto:varsha.sn3@gmail.com"><button class="btn btn-secondary">Email</button></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="section-2" class="quick-facts-section" data-lazy-load>
+            <div class="quick-facts-header">Giving users what they need, <br> quickly and conveniently.</div>
+            <div class="quick-facts-divider"></div>
+            <div class="quick-facts-subheader">TL;DR (Too Long; Didn't Read) </div>
+            <div class="quick-facts-container">
+                <div class="quick-fact">
+                    <h2>6+ Years</h2>
+                    <p>At powerhouse companies like Goldman, Amazon, and Publicis.</p>
+                </div>
+                <div class="quick-fact">
+                    <h2>4+ Industries</h2>
+                    <p>Played in FinTech, E-Commerce, Artificial Intelligence, and Healthcare playgrounds.</p>
+                </div>
+                <div class="quick-fact">
+                    <h2>2 Degrees</h2>
+                    <p>MBA @ Wharton + BA @ GWU. <br> Knowledge is power!</p>
+                </div>
+            </div>
+        </section>
+        <section id="section-3" class="centered-section" data-lazy-load>
+            <div class="left-container">
+                <div class="title">Elevating businesses <br>through <b>innovation.</b></div>
+                <div class="subtitle"><hr>I thrive at companies where I can leverage my technical acumen to create <b>impactful digital solutions.</b> Since 2016, I have worked on building high-visibility products from 0-to-1, providing <b>tangible business results</b> and <b>optimized user experiences.</b></div>
+                <a href="file:///C:/Users/Varsha/OneDrive/Documents/Personal/Personal%20Website/resume.pdf" target="_blank" class="resume-button">View Resume<span class="arrow">&#8594;</span></a>
+            </div>
+            <div class="right-container">
+                <div class="companies-grid">
+                    <div class="company-logo">
+                        <a href="https://www.amazon.com/" target="_blank">
+                            <img src="https://purepng.com/public/uploads/large/amazon-logo-s3f.png" alt="Amazon">
+                        </a>
+                    </div>
+                    <div class="company-logo">
+                        <a href="https://www.goldmansachs.com/" target="_blank">
+                            <img src="https://download.logo.wine/logo/Goldman_Sachs/Goldman_Sachs-Logo.wine.png" alt="Goldman Sachs">
+                        </a>
+                    </div>
+                    <div class="company-logo">
+                        <a href="https://www.publicissapient.com/" target="_blank">
+                            <img src="https://assets.stickpng.com/images/610672a92ced4d0004ead4e0.png" alt="Publicis Sapient">
+                        </a>
+                    </div>
+                    <div class="company-logo">
+                        <a href="https://www.ashoka.org/en-us/" target="_blank">
+                            <img src="https://globalizer.ashoka.org/themes/custom/blanco/logo.svg" alt="Ashoka">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="section-4" class="centered-section" data-lazy-load>
+            <div class="left-container section-4-left-container">
+                <div class="gif-container">
+                    <img src="C:/Users/Varsha/Downloads/Varsha - 10000 Women HQ.gif" alt="Varsha GIF" style="width: 500px; height: auto;">
+                    <div class="gif-caption">My skills in action! 🎬</div>
+                </div>
+            </div>
+            <div class="right-container">
+                <div class="right-content">
+                    <div class="title">Using well-practiced skills to drive <b>growth.<hr></b></div>
+                    <div class="p"><p>I enjoy developing comprehensive product strategies, technical architectures, and scalable solutions, leveraging tools like SQL, MongoDB, and Figma. I lead cross-functional teams, conduct market research, and drive adoption for initiatives by measuring results.</p></div>
+                </div>
+            </div>
+        </section>
+        <section id="section-5" class="centered-section" data-lazy-load>
+            <div class="left-container section-5-left-container">
+                <div class="title">Now, let's get to the <br>good stuff.</div>
+                <div class="subtitle"><hr>From concept to execution, I thrive on turning complex challenges into simple, elegant solutions. My portfolio includes solutions, research, and products that I am really proud of.</div>
+                <div class="hero-buttons">
+                    <a href="file:///C:/Users/Varsha/OneDrive/Documents/Personal/Personal%20Website/portfoliovs.html">
+                        <button class="btn btn-primary">Go to Full Portfolio<span class="arrow">&#8594;</span></button>
+                    </a>
+                </div>
+            </div>
+            <div class="right-container section-5-right-container">
+                <div class="project">
+                    <a href="file:///C:/Users/Varsha/OneDrive/Documents/Personal/Personal%20Website/casestudyvs1.html">
+                        <img src="C:/Users/Varsha/OneDrive/Documents/Personal/Personal Website/Images/Sample African Fintech 2.jpg" alt="Market Research in FinTech">
+                    </a>
+                    <h3>Portfolio Highlight: <br>Market Research in FinTech</h3>
+                    <p>A case for investing in financial inclusion</p>
+                    <button class="view-story-button">View story<span class="arrow">&#8594;</span></button>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <div class="container" style="display: flex; justify-content: space-between; align-items: center; padding: 20px 0;">
+            <div class="branding">
+                <span><b>Varsha Sundararaman</b> | Product Manager</span>
+            </div>
+            <nav class="nav">
+                <a href="#">Home</a>
+                <a href="#">Resume</a>
+                <a href="file:///C:/Users/Varsha/OneDrive/Documents/Personal/Personal%20Website/portfoliovs.html">Portfolio</a>
+                <a href="#contact">Contact</a>
+            </nav>
+        </div>
+    </footer>
+    <script>
+        function smoothScrollToSection(event, sectionId) {
+            event.preventDefault();
+            const section = document.querySelector(sectionId);
+            window.scrollTo({
+                top: section.offsetTop,
+                behavior: 'smooth'
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            let observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.1
+            };
+
+            let observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        setTimeout(() => {
+                            entry.target.classList.add('visible');
+                        }, 1000); // Delay added here (1000 milliseconds = 1 second)
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            let lazySections = document.querySelectorAll('section[data-lazy-load]');
+            lazySections.forEach(section => {
+                observer.observe(section);
+            });
+        });
+
+        window.addEventListener('scroll', function() {
+            var section2 = document.getElementById('section-2');
+            var quickFacts = section2.querySelectorAll('.quick-fact');
+            var rect2 = section2.getBoundingClientRect();
+            if (rect2.top <= window.innerHeight && rect2.bottom >= 0) {
+                quickFacts.forEach((fact, index) => {
+                    setTimeout(() => {
+                        fact.classList.add('visible');
+                    }, index * 1000); // Increased delay for each fact
+                });
+
+                // Animate the divider
+                var divider = section2.querySelector('.quick-facts-divider');
+                if (divider) {
+                    setTimeout(() => {
+                        divider.classList.add('visible');
+                    }, 1000); // Delay added here
+                }
+            }
+        });
+
+        window.addEventListener('scroll', function() {
+            var section3 = document.getElementById('section-3');
+            var rect3 = section3.getBoundingClientRect();
+            var leftContainer = section3.querySelector('.left-container');
+            if (rect3.top <= window.innerHeight && rect3.bottom >= 0) {
+                setTimeout(() => {
+                    leftContainer.classList.add('visible');
+                }, 1000); // Delay added here
+            } else {
+                leftContainer.classList.remove('visible');
+            }
+        });
+    </script>
+</body>
+</html>

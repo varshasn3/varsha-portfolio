@@ -1,0 +1,819 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Case Study - Market Research</title>
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:wght@100;200;300;400;500;600;700;800;900&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        body {
+            font-family: 'DM Sans', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #000000;
+            color: #FFFFFF;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        header {
+            padding: 20px;
+            background-color: transparent;
+            color: #FFFFFF;
+            width: 100%;
+            z-index: 1000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+            top: 0;
+        }
+
+        .container {
+            padding: 0px;
+            width: 100%;
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .branding {
+            display: flex;
+            align-items: center;
+            opacity: 0;
+            animation: fadeIn 1s ease-in forwards;
+        }
+
+        .branding span {
+            margin: 0 0px;
+            color: #FFFFFF;
+            font-family: 'DM Sans', serif;
+            font-weight: 400;
+            font-size: 1.1rem;
+            opacity: 0;
+            animation: fadeIn 1s ease-in forwards;
+        }
+
+        nav {
+            display: flex;
+            font-family: 'DM Sans', serif;
+            align-items: center;
+            opacity: 0;
+            animation: fadeIn 1s ease-in forwards;
+        }
+
+        nav a {
+            color: #FFFFFF;
+            font-family: 'DM Sans', serif;
+            font-weight: regular;
+            text-align: center;
+            padding: 14px 20px;
+            text-decoration: none;
+            font-size: 1rem;
+            display: inline-block;
+            opacity: 0;
+            animation: fadeIn 1s ease-in forwards;
+        }
+
+        nav a:hover {
+            color: #a8d5ba;
+        }
+
+        .hero {
+            height: 100vh;
+            width: 100%;
+            max-width: 1100px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-family: 'DM Serif Display', serif;
+            font-size: 3rem;
+            color: #FFFFFF;
+            opacity: 0;
+            animation: fadeIn 1s ease-in forwards;
+        }
+
+        .hero p {
+            font-family: 'DM Sans', serif;
+            font-size: 1.2rem;
+            color: #FFFFFF;
+            margin-top: -20px;
+            opacity: 0;
+            animation: fadeIn 1s ease-in 1s forwards;
+        }
+
+        .hero .back-button {
+            position: absolute;
+            top: 80px;
+            left: 20px;
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #000000;
+            color: #FFFFFF;
+            text-decoration: none;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 1rem;
+            border-radius: 50px;
+            align-items: center;
+            gap: 5px;
+            border: 2px solid transparent;
+            border-color: #FFFFFF;
+        }
+
+        .hero .back-button:hover {
+            background-color: gray;
+        }
+
+        .hero .summary-button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #FFFFFF;
+            color: #000000;
+            text-decoration: none;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 1rem;
+            border-radius: 50px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            border: 2px solid transparent;
+            animation: borderAnimation 2s infinite;
+        }
+
+        .hero .summary-button:hover {
+            background-color: gray;
+        }
+
+        .main {
+            display: flex;
+            flex-direction: row;
+            width: 100%;
+            max-width: 1100px;
+            margin: auto;
+            padding: 20px;
+            box-sizing: border-box;
+            position: relative;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+
+        .lazy-load {
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+
+        .lazy-load.visible {
+            opacity: 1;
+        }
+
+        #section-2 {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: auto;
+            padding: 40px;
+            background-color: #FFFFFF;
+            border-radius: 0;
+            z-index: 1;
+            position: relative;
+            width: 100%;
+            max-width: 1100px;
+            margin-top: -40px;
+            margin-bottom: 40px;
+        }
+
+        .portfolio-title h1 {
+            font-family: 'DM Serif Display', serif;
+            font-size: 40px;
+            font-weight: 700;
+            color: #000000;
+            text-align: center;
+            margin-bottom: 16px;
+            width: 100%;
+        }
+
+        .portfolio-title p {
+            font-family: 'DM Sans', serif;
+            font-size: 1.2rem;
+            font-weight: 400;
+            color: #6C757D;
+            text-align: center;
+            margin-bottom: 40px;
+            width: 100%;
+        }
+
+        .portfolio-title .buttons {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .portfolio-title .buttons a,
+        .summary-box a {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 60px;
+            background-color: #FFFFFF;
+            color: #000000;
+            text-decoration: none;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 1rem;
+            border-radius: 50px;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            justify-content: center;
+            gap: 10px;
+            width: auto;
+            box-sizing: border-box;
+            border: 2px solid transparent;
+            border-color: #000000;
+            padding: 10px 20px;
+        }
+
+        .portfolio-title .buttons a:hover,
+        .summary-box a:hover {
+            background-color: black;
+            color: #FFFFFF;
+        }
+
+        .left-column {
+            flex: 2;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            align-items: flex-start;
+            margin-right: 40px;
+        }
+
+        .right-column {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-left: 40px;
+            gap: 20px;
+            position: relative;
+        }
+
+        .case-study-header-right {
+            margin: 40px;
+        }
+
+        .case-study-section {
+            margin-bottom: 10px;
+        }
+
+        .case-study-section h2 {
+            font-family: 'DM Serif Display', serif;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: #FFFFFF;
+        }
+
+        .case-study-section p {
+            font-family: 'DM Sans', serif;
+            font-size: 1rem;
+            line-height: 1.6;
+            margin-bottom: 10px;
+            color: #FFFFFF;
+        }
+
+        .case-study-section ul {
+            list-style-type: disc;
+            padding-left: 20px;
+        }
+
+        .case-study-section ul li {
+            font-family: 'DM Sans', serif;
+            font-size: 1rem;
+            line-height: 1.6;
+            margin-bottom: 10px;
+            color: #FFFFFF;
+        }
+
+        .case-study-section#process {
+            margin-bottom: 0;
+        }
+
+        .summary-box {
+            border: 0px solid white;
+            background-color: #000000;
+            padding: 30px;
+            text-align: center;
+            width: 300px;
+            position: sticky;
+            top: 20px;
+            margin-bottom: 100px;
+        }
+
+        .summary-box h2 {
+            font-family: 'DM Serif Display', serif;
+        }
+
+        .summary-box p,
+        .summary-box ul {
+            list-style-type: disc;
+            font-family: 'DM Sans', sans-serif;
+        }
+
+        .deliverables-section {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: center;
+            height: auto;
+            background-color: transparent;
+            border-radius: 0;
+            z-index: 0;
+            position: relative;
+            width: 100%;
+            margin-top: 0px;
+        }
+
+        .deliverables-section h2 {
+            font-family: 'DM Serif Display', serif;
+            font-size: 1.5rem;
+            margin-top: 0px;
+            margin-bottom: 20px;
+            color: #FFFFFF;
+        }
+
+        .deliverables-section p {
+            font-family: 'DM Sans', serif;
+            font-size: 1rem;
+            line-height: 1.6;
+	    margin-top: 0px;
+            margin-bottom: 20px;
+            color: #FFFFFF;
+        }
+
+        .images {
+            display: flex;
+            margin-top: -80px;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .image-container {
+            position: relative;
+        }
+
+        .image-container img {
+            height: auto;
+            max-width: 100%;
+            border-radius: 0px;
+            cursor: pointer;
+            display: block;
+        }
+
+        .large-image {
+            width: 400px;
+        }
+
+        .small-image {
+            width: 150px;
+        }
+
+        .caption {
+            text-align: center;
+            margin-top: 5px;
+            font-family: 'DM Sans', serif;
+            font-size: 1rem;
+            color: #FFFFFF;
+        }
+
+        .end-to-end-section .caption {
+            color: #000000;
+            font-size: 14px;
+            text-align: center;
+        }
+
+.end-to-end-section img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 2px;
+    display: block;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.end-to-end-image-container {
+    display: flex;
+    align-items: flex-start; /* Align the image at the start (top) of the container */
+    width: 100%;
+}
+
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            color: #FFFFFF;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .image-container:hover .overlay {
+            opacity: 1;
+        }
+
+        .see-others-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .see-others {
+            font-family: 'DM Sans', serif;
+            font-size: 1.2rem;
+            color: #FFFFFF;
+        }
+
+        footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+            background-color: transparent;
+            color: #FFFFFF;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        footer nav {
+            display: flex;
+            gap: 20px;
+        }
+
+        footer nav a {
+            text-decoration: none;
+            color: #FFFFFF;
+        }
+
+        footer .site-name {
+            font-weight: bold;
+        }
+
+        @media (max-width: 768px) {
+            .main {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .left-column {
+                margin-right: 0;
+                width: 100%;
+                align-items: center;
+            }
+
+            .right-column {
+                max-width: 100%;
+                align-items: center;
+                text-align: center;
+                position: static;
+            }
+
+            .case-study-header-right h1 {
+                font-size: 2rem;
+            }
+
+            .case-study-section h2 {
+                font-size: 1.2rem;
+            }
+
+            .case-study-section p {
+                text-align: left;
+            }
+
+            .summary-box {
+                position: relative;
+                left: auto;
+                top: auto;
+                transform: none;
+                margin: 20px auto;
+                width: 80%;
+            }
+
+            #section-2 {
+                margin: 20px auto 20px auto;
+            }
+
+            .deliverables-section {
+                margin-left: 0;
+            }
+
+            footer {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            nav {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            nav a {
+                padding: 10px 0;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .case-study-header-right h1 {
+                font-size: 1.5rem;
+            }
+
+            .case-study-section h2 {
+                font-size: 1rem;
+            }
+
+            .case-study-section p {
+                text-align: left;
+            }
+
+            .deliverables-section {
+                margin: 0 10px;
+            }
+
+            nav a {
+                padding: 8px 0;
+            }
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes borderAnimation {
+            0% {
+                border-color: transparent;
+            }
+
+            50% {
+                border-color: #000000;
+            }
+
+            100% {
+                border-color: transparent;
+            }
+        }
+
+        .left-column,
+        .right-column {
+            align-items: flex-start;
+        }
+
+        .left-column img {
+            margin-top: 60px;
+        }
+
+        .end-to-end-section {
+            display: flex;
+            flex-direction: row;
+            width: 100%;
+            max-width: 1100px;
+            padding: 20px;
+            box-sizing: border-box;
+            background-color: #FFFFFF;
+            color: #000000;
+            border-radius: 2px;
+            margin-top: -30px;
+            margin-bottom: 20px;
+        }
+
+        .end-to-end-section .left-column,
+        .end-to-end-section .right-column {
+            align-items: left;
+        }
+
+        .end-to-end-section h2 {
+            font-family: 'DM Serif Display', serif;
+            font-size: 1.5rem;
+            color: #000000;
+        }
+
+        .end-to-end-section p {
+            font-family: 'DM Sans', serif;
+            font-size: 1rem;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            color: #000000;
+        }
+
+        .end-to-end-section .quote blockquote {
+            font-family: 'DM Sans', serif;
+            font-size: 1rem;
+            color: #000000;
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        .end-to-end-section .quote blockquote footer {
+            font-family: 'DM Sans', serif;
+            font-size: 0.875rem;
+            color: #000000;
+            margin-top: 10px;
+            text-align: right;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <div class="branding">
+                <span><b>Varsha Sundararaman</b> | Product Manager</span>
+            </div>
+            <nav>
+                <a href="file:///C:/Users/Varsha/OneDrive/Documents/Personal/Personal%20Website/indexvs.html">Home</a>
+                <a href="#resume">Resume</a>
+                <a href="file:///C:/Users/Varsha/OneDrive/Documents/Personal/Personal%20Website/portfoliovs.html">Portfolio</a>
+                <a href="#contact">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="hero">
+        <a href="file:///C:/Users/Varsha/OneDrive/Documents/Personal/Personal%20Website/portfoliovs.html" class="back-button">
+            <i class="fas fa-arrow-left"></i> Back to Portfolio
+        </a>
+        <h1>Market Research in FinTech</h1>
+        <p>My deep-dive into the world of financial inclusion</p>
+        <a href="#section-2" class="summary-button">Read Executive Summary</a>
+    </div>
+
+    <section id="section-2" class="portfolio-title lazy-load">
+        <h1>Executive Summary</h1>
+        <p>My deep dive into financial inclusion aimed to make a compelling case for investing in this sector. <br>This case study outlines the research I conducted on companies, like Chime and Codat, alongside insights from the African fintech landscape. My approach involved leveraging tools like PitchBook, conducting company interviews, and visiting various countries to gain firsthand insights.</br></p>
+        <div class="buttons">
+            <a href="#challenge">The Challenge</a>
+            <a href="#process">The Process</a>
+            <a href="#findings">The Findings</a>
+            <a href="#deliverables-section">The Deliverables</a>
+        </div>
+    </section>
+
+    <div class="main lazy-load">
+        <div class="left-column">
+            <div class="case-study-section" id="challenge">
+                <h2>The Challenge</h2>
+                <p>The primary challenge was understanding the diverse landscape of financial inclusion across different regions and identifying key players making significant strides. The fintech space is vast, with numerous startups targeting various aspects of financial services. My goal was to identify companies that were not only innovative but also had a tangible impact on underserved populations.</p>
+            </div>
+
+            <div class="case-study-section" id="process">
+                <h2>The Process</h2>
+                <p>To tackle this challenge, I focused on:</p>
+                <ul>
+                    <li><b>Market Research</b>: Utilizing PitchBook and other financial databases to gather comprehensive data on fintech companies.</li>
+                    <li><b>Company Interviews</b>: Conducting interviews with founders and key personnel to gain deeper insights into their operations and challenges.</li>
+                    <li><b>Field Visits</b>: Traveling to key markets such as Ghana, Senegal, and other parts of Africa to observe the fintech landscape firsthand and understand the on-ground realities.</li>
+                </ul>
+            </div>
+
+            <div class="case-study-section end-to-end-section">
+                <div class="left-column">
+                    <div class="case-study-section" id="end-to-end">
+                        <p><b>Compiling and Presenting Data</b>:<br>I wanted to be able to share and present the data I found in a digestible manner for my stakeholders, which included investors, founders, and executives alike.</br>After presenting to founders, I received feedback that it lacked context of the company in the greater market. Moving forward, my memos included information about the larger industry, and where this company played a role in the market.</p>
+                    </div>
+                </div>
+                <div class="right-column">
+                    <div class="end-to-end-image-container">
+                        <img src="C:/Users/Varsha/OneDrive/Documents/Personal/Personal Website/Images/Original-Thesis.jpg" alt="Key Image" class="end-to-end-image">
+                    </div>
+                    <div class="caption">Early Investment Memo</div>
+                </div>
+            </div>
+
+            <div class="case-study-section" id="findings">
+                <h2>The Findings</h2>
+                <p>The research highlights the critical role of fintech innovations in promoting financial inclusion across different markets. My comprehensive approach—leveraging data tools, conducting interviews, and engaging in field visits—provided a holistic understanding of the market. Investing in innovative solutions like those offered by Codat, Chime, and African fintech startups not only provides essential financial services to underserved populations but also stimulates global economic growth and development.</p>
+            </div>
+        </div>
+        <div class="right-column">
+            <div class="summary-box" id="sticky-summary-box">
+                <h2>Skills & Tools</h2>
+                <hr>
+                <p><b>Skills Demonstrated</b></br>
+                    <br>Industry Knowledge
+                    <br>Market Research
+                    <br>Competitive Analysis
+                    <br>User Interviews
+                    <br>Data Presentation
+                </p>
+                <hr>
+                <p><b>Tools Used</br></b>
+                    <br>Pitchbook
+                    <br>Crunchbase
+                </p>
+                <hr>
+                <p><b>Deliverables Created</br></b>
+                    <br>Investment Memos
+                    <br>Market Research
+                </p>
+                <hr>
+                <a href="#deliverables-section">View Deliverables</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="main lazy-load" id="deliverables-section">
+        <div class="left-column">
+            <div class="deliverables-section">
+                <h2>The Deliverables</h2>
+                <p>To date, I have been able to analyze the data I've found and compile this research. I will continue to do so, to highlight the importance of investing in financial inclusion. <br>The deliverables on the right show my research on financial inclusion in Africa, and one-pagers on Codat and Chime. They demonstrate my ability to research and organize data, to show a holistic view on a subject or company. These are only three of the memos I have done - this research is ongoing.</br></p>
+            </div>
+        </div>
+        <div class="right-column">
+            <div class="images">
+                <div class="image-container">
+                    <a href="C:/Users/Varsha/OneDrive/Documents/Personal/Personal Website/Images/Sample African FinTech.jpg" target="_blank">
+                        <img src="C:/Users/Varsha/OneDrive/Documents/Personal/Personal Website/Images/Sample African FinTech.jpg" alt="African FinTech Solutions" class="large-image">
+                        <div class="overlay">See More</div>
+                    </a>
+                    <div class="caption">African FinTech Solutions</div>
+                </div>
+                <div class="see-others-container">
+                    <div class="image-container">
+                        <a href="C:/Users/Varsha/OneDrive/Documents/Personal/Personal Website/Images/Sample Codat Image.jpg" target="_blank">
+                            <img src="C:/Users/Varsha/OneDrive/Documents/Personal/Personal Website/Images/Sample Codat Image.jpg" alt="Codat Research" class="small-image">
+                            <div class="overlay">See More</div>
+                        </a>
+                        <div class="caption">Codat Research</div>
+                    </div>
+                    <div class="image-container">
+                        <a href="C:/Users/Varsha/OneDrive/Documents/Personal/Personal Website/Images/Sample Chime Image.jpg" target="_blank">
+                            <img src="C:/Users/Varsha/OneDrive/Documents/Personal/Personal Website/Images/Sample Chime Image.jpg" alt="Chime Research" class="small-image">
+                            <div class="overlay">See More</div>
+                        </a>
+                        <div class="caption">Chime Research</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="site-name">Varsha Sundararaman</div>
+        <nav>
+            <a href="#">Home</a>
+            <a href="#">Resume</a>
+            <a href="#">Portfolio</a>
+            <a href="#">Contact</a>
+        </nav>
+    </footer>
+
+    <script>
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        document.addEventListener('DOMContentLoaded', function () {
+            let lazyLoadElements = document.querySelectorAll('.lazy-load');
+            let observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+
+            lazyLoadElements.forEach(element => {
+                observer.observe(element);
+            });
+        });
+    </script>
+</body>
+
+</html>
