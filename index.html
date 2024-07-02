@@ -14,15 +14,16 @@
             padding: 0;
             background-color: #FFFFFF;
             overflow-x: hidden; /* Prevent horizontal overflow */
+            max-width:100%;
         }
         .container {
-            width: 100%;
-            max-width: 1100px;
+            width: 90%;
+            max-width: 1400px;
             margin: 0 auto;
-            padding: 0 80px; /* Increased padding for larger margins */
+            padding: 0 2%;
         }
         header {
-            padding: 20px;
+            padding: 2vh 2vw;
             background-color: transparent;
             color: #F4F4F4;
             text-align: center;
@@ -59,7 +60,7 @@
             color: #FFFFFF;
             font-family: 'DM Sans', serif;
             text-align: center;
-            padding: 14px 20px;
+            padding: 1vh 1.5vw;
             text-decoration: none; /* Remove underline */
             font-size: 1rem;
             display: inline-block;
@@ -78,7 +79,7 @@
             padding: 0;
             margin: 0;
             position: relative;
-            background-image: url('C:/Users/Varsha/Downloads/Varsha_Sundararaman_Headshot_Landscape_More_Seamless.jpg');
+            background-image: url('images/Varsha_Sundararaman_Headshot_Landscape_More_Seamless.jpg');
             background-size: cover;
             background-position: top;
             background-position-y: -50px;
@@ -109,8 +110,8 @@
         .sppb-addon-title {
             font-weight: 200;
             font-family: 'DM Serif Display', bold;
-            font-size: 45px;
-            line-height: 62px;
+            font-size: 3.5vw;
+            line-height: 1.4;
             letter-spacing: 0;
             margin: 0 0 0;
             margin-left: 0;
@@ -133,8 +134,8 @@
             color: #FFFFFF;
             font-family: 'DM Serif Display', regular;
             margin: 10px;
-            line-height: 62px;
-            font-size: 45px;
+            line-height: 1.4;
+            font-size: 3.5vw;
             font-weight: 400;
             white-space: pre-wrap;
             word-wrap: break-word;            
@@ -145,8 +146,8 @@
             color: #FFFFFF;
             font-family: 'DM Serif Display', regular;
             margin: 10px;
-            line-height: 62px;
-            font-size: 45px;
+            line-height: 1.4;
+            font-size: 3.5vw;
             font-weight: 400;
             white-space: pre-wrap;
             word-wrap: break-word;
@@ -157,8 +158,8 @@
             color: #FFFFFF;
             font-family: 'DM Serif Display', regular;
             margin: 10px;
-            line-height: 62px;
-            font-size: 45px;
+            line-height: 1.4;
+            font-size: 3.5vw;
             font-weight: 400;
             white-space: pre-wrap;
             word-wrap: break-word;
@@ -224,7 +225,7 @@
             justify-content: center;
             align-items: flex-end;
             width: 60%;
-            padding: 40px 40px;
+            padding: 4vh 4vw;
             color: #000000;
             text-align: right;
             position: relative;
@@ -232,16 +233,16 @@
             animation: fadeIn 1s ease-in 1s forwards;
         }
         .left-container .title {
-            font-size: 50px;
+            font-size: 4vw;
             font-family: 'DM Serif Display', sans-serif;
             margin-bottom: 20px;
             margin-right: 20px;
             font-weight: 300;
-            line-height: 50px;
+            line-height: 1.2;
             z-index: 1;
         }
         .left-container .subtitle {
-            font-size: 1rem;
+            font-size: 1.2vw;
             margin-bottom: 15px;
             width: 100%;
             font-family: 'DM Sans', sans-serif;
@@ -249,7 +250,7 @@
             line-height: 30px;
         }
         .left-container .resume-button {
-            padding: 10px 20px;
+            padding: 0.5rem 3rem;
             background: #000000;
             color: #FFFFFF;
             border: 2px solid #000000;
@@ -279,7 +280,7 @@
             align-items: center;
             width: 40%;
             height: 100%;
-            padding: 40px 20px; /* Ensure this matches the padding of the left-container */
+            padding: 4vh 2vw; /* Ensure this matches the padding of the left-container */
             opacity: 0;
             animation: fadeIn 1s ease-in 0.5s forwards;
         }
@@ -314,19 +315,20 @@
             align-items: center;
             justify-content: center;
             height: 75vh;
-            padding: 40px;
+            padding: 4vh 0; 
             background-color: #000000;
             border-radius: 0;
-            margin-top: -40px;
+            margin-top: -4vh;
             z-index: 1;
             position: relative;
-            width: 100%;
-            max-width: 1100px;
-            margin: -40px auto 0 auto;
+            width: 90%; /* Set a fixed percentage width */
+            max-width: 150vw;
+            margin-left: auto;
+            margin-right: auto;
         }
         .quick-facts-header {
             font-family: 'DM Serif Display', serif;
-            font-size: 45px;
+            font-size: 4vw;
             font-weight: 700;
             color: #FFFFFF;
             text-align: center;
@@ -335,7 +337,7 @@
         }
         .quick-facts-subheader {
             font-family: 'DM Serif Display', serif;
-            font-size: 2rem;
+            font-size: 2.5vw;
             font-weight: 400;
             color: #FFFFFF;
             text-align: center;
@@ -350,18 +352,19 @@
             transition: width 1s ease-in-out;
         }
         .quick-facts-divider.visible {
-            width: 100%; /* Transition to full width */
+            width: 90%; /* Transition to full width */
         }
         .quick-facts-container {
             display: flex;
             justify-content: center;
             width: 100%;
-            gap: 40px;
+            gap: 4vw;
+            padding: 0 4vw;
         }
         .quick-fact {
             background-color: #000000;
             border-radius: 8px;
-            padding: 0px;
+            padding: 0;
             text-align: center;
             width: 20%;
             opacity: 0;
@@ -372,7 +375,7 @@
         }
         .quick-fact h2 {
             font-family: 'DM Serif Display', serif;
-            font-size: 1.5rem;
+            font-size: 1.8vw;
             font-weight: 200px;
             color: #FFFFFF;
             margin-bottom: 5px;
@@ -386,6 +389,7 @@
         #section-3 {
             display: flex;
             height: 88vh;
+            padding: 4vh 4vw;
             margin-top: 0px;
             position: relative;
             z-index: 0;
@@ -400,7 +404,7 @@
             z-index: 0;
             background-color: #000000; 
             color: #FFFFFF;
-            padding: 40px; /* Ensure consistent padding */
+            padding: 4vh 4vw; /* Ensure consistent padding */
         }
         .section-4-left-container {
             display: flex;
@@ -408,6 +412,7 @@
             justify-content: center; /* Center items vertically */
             align-items: flex-end;
             width: 50%;
+	    height: auto;
             color: #FFFFFF;
             text-align: right;
             position: relative;
@@ -435,27 +440,21 @@
             position: relative;
         }
         .right-content .title {
-            font-size: 50px;
+            font-size: 4vw;
             font-family: 'DM Serif Display', sans-serif;
             margin-bottom: 20px;
             font-weight: 300;
-            line-height: 50px;
+            line-height: 1.2;
             z-index: 1;
         }
         .right-content .p {
             font-family: 'DM Sans', sans-serif;
             margin-bottom: 20px;
             z-index: 1;
-            font-size: 1rem;
+            font-size: 1.2vw;
             font-weight: 400;
-            line-height: 30px;
+            line-height: 1.6;
             max-width: 100%; /* Ensure the paragraphs do not extend beyond the headers */
-        }
-        @media (max-width: 768px) {
-            .right-container {
-                max-width: 100%;
-                padding: 20px;
-            }
         }
         @keyframes borderAnimation {
             0% {
@@ -480,11 +479,11 @@
             text-decoration: none; /* This removes the purple underline */
         }
         .hero-buttons .btn {
-            padding: 10px 20px;
+            padding: 0.5em 3em;
             border: none;
-            border-radius: 50px;
+            border-radius: 6rem;
             font-family: 'DM Sans', sans-serif;
-            font-size: 1rem;
+            font-size: 1em;
             cursor: pointer;
             transition: background-color 0.3s, color 0.3s, border-color 0.3s;
             text-align: center; /* Center text within buttons */
@@ -524,6 +523,7 @@
             z-index: 0;
             background-color: #FFFFFF; 
             color: #000000;
+            padding: 4vh 4vw;
         }
         .section-5-left-container {
             display: flex;
@@ -536,19 +536,19 @@
             position: relative;
         }
         .section-5-left-container .title {
-            font-size: 50px;
+            font-size: 4vw;
             font-family: 'DM Serif Display', sans-serif;
             margin-bottom: 20px;
             font-weight: 300;
-            line-height: 50px;
+            line-height: 1.2;
             z-index: 1;
         }
         .section-5-left-container .subtitle {
-            font-size: 1rem;
+            font-size: 1.2vw;
             font-family: 'DM Sans', sans-serif;
             z-index: 1;
             font-weight: 400;
-            line-height: 30px;
+            line-height: 1.6;
         }
         .section-5-right-container {
             display: flex;
@@ -564,9 +564,9 @@
             font-size: 1rem;
             line-height: 0px;
             z-index: 1;
-	    justify-content: left;
-	    text-align: left;
-	    padding: 0px;
+            justify-content: left;
+            text-align: left;
+            padding: 0px;
         }
         .project {
             display: flex;
@@ -680,13 +680,332 @@
         footer .nav a:hover {
             color: #ADD8E6;
         }
+        /* Hamburger menu styles */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            width: 30px;
+            height: 30px;
+        }
+
+        .nav-links {
+            display: flex;
+        }
+        .nav-links a {
+            display: inline-block;
+        }
+        @media (max-width: 1000px) {
+            body, html {
+                overflow-x: hidden;
+                max-width: 100%;
+                position: relative;
+            }
+
+            * {
+                max-width: 100%;
+                box-sizing: border-box;
+            }
+
+            .container {
+                padding: 0 20px;
+                max-width: 100%;
+            }
+
+            header {
+                padding: 10px 0;
+                max-width: 100%;
+                background-color: black;
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                z-index: 1000;
+            }
+
+            .branding span {
+                font-size: 0.9rem;
+            }
+
+            header .container, footer .container {
+                justify-content: space-between;
+                align-items: center;
+            }
+
+            nav, footer .nav {
+                display: none;
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: rgba(0, 0, 0, 0.9);
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                z-index: 1000;
+            }
+
+            nav.active, footer .nav.active {
+                display: flex;
+                opacity: 1;
+            }
+
+            nav a, footer .nav a {
+                padding: 15px 0;
+                width: 100%;
+                text-align: center;
+                font-size: 1.2rem;
+            }
+
+            .hamburger, footer .hamburger {
+                display: flex;
+                flex-direction: column;
+                justify-content: space-around;
+                width: 2rem;
+                height: 2rem;
+                background: transparent;
+                border: none;
+                cursor: pointer;
+                padding: 0;
+                z-index: 1001;
+            }
+            .hamburger span {
+                width: 2rem;
+                height: 0.25rem;
+                background: #FFFFFF;
+                border-radius: 10px;
+                transition: all 0.3s linear;
+                position: relative;
+                transform-origin: 1px;
+            }
+            footer .hamburger span {
+                width: 2rem;
+                height: 0.25rem;
+                background: #000000;
+                border-radius: 10px;
+                transition: all 0.3s linear;
+                position: relative;
+                transform-origin: 1px;
+            }
+            .hamburger.active span:nth-child(1) {
+                transform: rotate(-45deg) translate(-5px, 6px);
+            }
+            .hamburger.active span:nth-child(2) {
+                opacity: 0;
+            }
+            .hamburger.active span:nth-child(3) {
+                transform: rotate(45deg) translate(-5px, -6px);
+            }
+
+            footer {
+                color: #000000;
+                position: relative;
+            }
+            footer .nav a{
+                color: #FFFFFF;
+            }
+
+            footer .nav {
+                top: 100%;
+            }
+
+            .content-container {
+                background-position: 30% center;
+                max-width: 100%;
+            }
+
+            .text-container {
+                max-width: 100%;
+                background-color: rgba(0, 0, 0, 0.5);
+                text-align: center;
+            }
+
+            .sppb-addon-title {
+                font-size: 1.6rem;
+                line-height: 1.3;
+            }
+
+            .highlight, .highlight-2, .highlight-3 {
+                font-size: 1.6rem;
+                line-height: 1.3;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .hero-buttons .btn {
+                width: 100%;
+                margin-bottom: 0.5rem;
+            }
+
+            .centered-section {
+                flex-direction: column;
+                height: auto;
+            }
+
+            #section-2 {
+                height: auto;
+                min-height: 75vh;
+                padding: 3rem 1rem;
+                overflow: hidden;
+                max-width: 100%;
+            }
+
+            .quick-facts-header {
+                font-size: 1.8rem;
+                line-height: 1.3;
+            }
+
+            .quick-facts-subheader {
+                font-size: 1.2rem;
+            }
+
+            .quick-facts-container {
+                width: 100%;
+                flex-direction: column;
+                gap: 2rem;
+            }
+
+            .quick-fact {
+                width: 100%;
+                max-width: 300px;
+                margin: 0 auto;
+            }
+
+            .quick-fact h2 {
+                font-size: 1.2rem;
+            }
+
+            .quick-fact p {
+                font-size: 0.9rem;
+            }
+
+            .left-container, .right-container {
+                max-width: 100%;
+                text-align: center;
+                align-items: center;
+            }
+            #section-3, #section-4, #section-5, footer {
+                flex-direction: column;
+                height: auto;
+                padding: 2rem 1rem;
+                max-width: 100%;
+            }
+
+            .companies-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            #section-4, #section-5 {
+                height: auto;
+                min-height: 100vh;
+                overflow: hidden;
+                max-width: 100%;
+            }
+
+            .section-4-left-container, .section-4-right container, .section-5-right-container {
+                max-width: 100%;
+                text-align: center;
+                align-items: center;
+            }
+
+            .left-container .subtitle,
+            .right-content .p,
+            .section-5-left-container .subtitle {
+                width: 100%;
+                text-align: center;
+                font-size: 1rem;
+                line-height: 1.5;
+            }
+
+            .left-container .title,
+            .right-content .title,
+            .section-5-left-container .title {
+                width:100%;
+                text-align: center;
+                font-size: 1.8rem;
+                line-height: 1.2;
+            }
+
+            .project {
+                margin-bottom: 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body, html {
+                overflow-x: hidden;
+                max-width: 100%;
+                position: relative;
+            }
+
+            * {
+                max-width: 100%;
+                box-sizing: border-box;
+            }
+            .content-container {
+                background-position: 30% center;
+                max-width: 100%;
+            }
+
+            .text-container {
+                max-width: 100%;
+                padding: 1rem;
+                background-color: rgba(0, 0, 0, 0.5);
+                text-align: center;
+            }
+            .sppb-addon-title, .highlight, .highlight-2, .highlight-3 {
+                font-size: 1.5rem;
+                line-height: 1.3;
+            }
+
+            .companies-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        .banner {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: #ADD8E6;
+            color: #000000;
+            text-align: center;
+            padding: 10px;
+            z-index: 1001;
+            display: none;
+        }
+        .banner .close-button {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            color: #000000;
+            font-size: 3rem;
+            cursor: pointer;
+        }
     </style>
 </head>
 <body>
+    <div class="banner" id="resolution-banner">
+        This page is optimized for desktop resolution 1920x1080. 
+        <button class="close-button" onclick="closeBanner()">×</button>
+    </div>
     <header>
         <div class="container" style="display: flex; justify-content: space-between; align-items: center;">
             <div class="branding">
                 <span><b>Varsha Sundararaman</b> | Product Manager</span>
+            </div>
+            <div class="hamburger" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
             </div>
             <nav>
                 <a href="#">Home</a>
@@ -762,7 +1081,7 @@
         <section id="section-4" class="centered-section" data-lazy-load>
             <div class="left-container section-4-left-container">
                 <div class="gif-container">
-                    <img src="images/Varsha - 10000 Women HQ.gif" alt="Varsha GIF" style="width: 500px; height: auto;">
+                    <img src="images/Varsha - 10000 Women HQ.gif" alt="Varsha GIF" style="width: 100%; height: auto;">
                     <div class="gif-caption">My skills in action! 🎬</div>
                 </div>
             </div>
@@ -801,7 +1120,7 @@
                 <span><b>Varsha Sundararaman</b> | Product Manager</span>
             </div>
             <nav class="nav">
-                <a href="#">Home</a>
+                <a href="file:///C:/Users/Varsha/OneDrive/Documents/Personal/Personal%20Website/index.html">Home</a>
                 <a href="#">Resume</a>
                 <a href="file:///C:/Users/Varsha/OneDrive/Documents/Personal/Personal%20Website/portfoliovs.html">Portfolio</a>
                 <a href="#contact">Contact</a>
@@ -809,6 +1128,7 @@
         </div>
     </footer>
     <script>
+        // Smooth scrolling function
         function smoothScrollToSection(event, sectionId) {
             event.preventDefault();
             const section = document.querySelector(sectionId);
@@ -818,6 +1138,47 @@
             });
         }
 
+        // Toggle menu function for header
+        function toggleMenu() {
+            const nav = document.querySelector('header nav');
+            const hamburger = document.querySelector('header .hamburger');
+            nav.classList.toggle('active');
+            hamburger.classList.toggle('active');
+            document.body.classList.toggle('menu-open');
+        }
+
+        // Toggle menu function for footer
+        function toggleFooterMenu() {
+            const nav = document.querySelector('footer .nav');
+            const hamburger = document.querySelector('footer .hamburger');
+            nav.classList.toggle('active');
+            hamburger.classList.toggle('active');
+            document.body.classList.toggle('menu-open');
+        }
+
+        // Close menu when clicking outside
+        document.addEventListener('click', function(event) {
+            const header = document.querySelector('header');
+            const footer = document.querySelector('footer');
+            const headerNav = document.querySelector('header nav');
+            const footerNav = document.querySelector('footer .nav');
+
+            if (!header.contains(event.target) && !headerNav.contains(event.target)) {
+                headerNav.classList.remove('active');
+                document.querySelector('header .hamburger').classList.remove('active');
+            }
+
+            if (!footer.contains(event.target) && !footerNav.contains(event.target)) {
+                footerNav.classList.remove('active');
+                document.querySelector('footer .hamburger').classList.remove('active');
+            }
+
+            if (!headerNav.classList.contains('active') && !footerNav.classList.contains('active')) {
+                document.body.classList.remove('menu-open');
+            }
+        });
+
+        // Lazy loading and animations
         document.addEventListener('DOMContentLoaded', function() {
             let observerOptions = {
                 root: null,
@@ -842,7 +1203,9 @@
             });
         });
 
+        // Scroll animations for specific sections
         window.addEventListener('scroll', function() {
+            // Animation for section 2
             var section2 = document.getElementById('section-2');
             var quickFacts = section2.querySelectorAll('.quick-fact');
             var rect2 = section2.getBoundingClientRect();
@@ -861,9 +1224,8 @@
                     }, 1000); // Delay added here
                 }
             }
-        });
 
-        window.addEventListener('scroll', function() {
+            // Animation for section 3
             var section3 = document.getElementById('section-3');
             var rect3 = section3.getBoundingClientRect();
             var leftContainer = section3.querySelector('.left-container');
@@ -875,6 +1237,26 @@
                 leftContainer.classList.remove('visible');
             }
         });
+
+        // Banner for resolution
+        function checkResolution() {
+            const banner = document.getElementById('resolution-banner');
+            const dpr = window.devicePixelRatio || 1;
+            const width = Math.round(window.screen.width * dpr);
+            const height = Math.round(window.screen.height * dpr);
+            if (width !== 1920 || height !== 1080) {
+                banner.style.display = 'block';
+            } else {
+                banner.style.display = 'none';
+            }
+        }
+
+        function closeBanner() {
+            document.getElementById('resolution-banner').style.display = 'none';
+        }
+
+        window.addEventListener('resize', checkResolution);
+        window.addEventListener('load', checkResolution);
     </script>
 </body>
 </html>
