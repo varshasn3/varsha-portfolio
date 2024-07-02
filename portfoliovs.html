@@ -26,9 +26,7 @@
             width: 100%;
             z-index: 1000;
             display: flex;
-            justify-content: center;
-            align-items: center;
-            position: absolute;
+            position: fixed;
             top: 0;
         }
 
@@ -38,6 +36,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+	    margin: 0 auto;
         }
 
         .branding, nav {
@@ -65,7 +64,7 @@
         }
 
         nav a:hover {
-            color: #a8d5ba;
+            color: #ADD8E6;
         }
 
         .hero {
@@ -73,23 +72,28 @@
             color: white;
             min-height: 100vh;
             display: flex;
-            justify-content: right;
-            align-items: flex-end;
-            padding: 20px;
+            justify-content: center;
+            align-items: center;
+            padding-left: 2rem;
             width: 100%;
             box-sizing: border-box;
             position: relative;
         }
 
         .hero .container {
-            justify-content: flex-start;
+            justify-content: center;
         }
 
-        .hero-text {
-            font-family: 'DM Serif Display', serif;
-            font-size: 10rem;
-            opacity: 0;
-            animation: fadeIn 1s ease-in forwards;
+.hero-text {
+    position: absolute;
+    bottom: 2rem;
+    left: 4rem;
+    font-family: 'DM Serif Display', serif;
+    font-size: 10rem;
+    opacity: 0;
+    animation: fadeIn 1s ease-in forwards;
+    text-align: left; /* Align text to the left */
+}
         }
 
         .content {
@@ -103,7 +107,7 @@
         }
 
         .portfolio-title {
-            text-align: center;
+            text-align: left;
             margin: 40px 0;
             width: 100%;
             box-sizing: border-box;
@@ -118,7 +122,7 @@
             padding: 40px;
             background-color: #FFFFFF;
             position: relative;
-            max-width: 1100px;
+            max-width: 100%;
             margin: -40px auto 0;
         }
 
@@ -207,12 +211,17 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 20px 40px;
+            padding: 20px;
             background-color: transparent;
             color: #000000;
             width: 100%;
             box-sizing: border-box;
         }
+	footer.container {
+	    display: flex;
+	    justify-content: space-between;
+	    align-items: center;
+}
 
         footer nav {
             display: flex;
@@ -221,41 +230,16 @@
 
         footer nav a {
             text-decoration: none;
-            color: #000000;
+            color: #000000; /* Set font color to white */
         }
 
         footer .site-name {
             font-weight: bold;
         }
-
-        @media (max-width: 768px) {
-            .hero-text {
-                font-size: 5rem;
-            }
-
-            .portfolio-title h1 {
-                font-size: 2em;
-            }
-
-            .projects {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .project {
-                width: 80%;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .hero-text {
-                font-size: 3rem;
-            }
-
-            .portfolio-title h1 {
-                font-size: 1.5em;
-            }
-        }
+	
+	.hamburger, footer .hamburger {
+	    display: none;
+}
 
         @keyframes fadeIn {
             to {
@@ -312,6 +296,177 @@
             border: 2px solid #ADD8E6; /* Light blue border on hover */
             color: #FFFFFF; /* White text on hover */
         }
+
+
+        @media (max-width: 768px) {
+            body, html {
+                overflow-x: hidden;
+                max-width: 100%;
+                position: relative;
+            }
+
+            * {
+                max-width: 100%;
+                box-sizing: border-box;
+            }
+
+            .hero, .main,.container {
+		width: 100%;
+                padding: 0 20px;
+                max-width: 100%;
+        box-sizing: border-box;
+            }
+
+            .branding span {
+                font-size: 0.9rem;
+            }
+
+            header .container, footer .container {
+                justify-content: space-between;
+                align-items: center;
+            }
+
+            nav, footer nav {
+                display: none;
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: rgba(0, 0, 0, 0.9);
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                z-index: 1000;
+                transition: opacity 0.3s ease-in-out;
+                opacity: 0;
+                pointer-events: none;
+            }
+
+            nav.active, footer nav.active {
+                display: flex;
+                opacity: 1;
+                pointer-events: auto;
+            }
+
+            nav a, footer nav a {
+                padding: 15px 0;
+                width: 100%;
+                text-align: center;
+                font-size: 1.2rem;
+            }
+
+        .hamburger, footer .hamburger {
+            display: flex;
+            width: 2rem;
+            height: 2rem;
+            flex-direction: column;
+            justify-content: space-around;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            z-index: 1001;
+        }
+
+        .hamburger span, footer .hamburger span {
+            width: 2rem;
+            height: 0.25rem;
+            background: #FFFFFF; /* Default color for header */
+            border-radius: 10px;
+            transition: all 0.3s linear;
+            position: relative;
+            transform-origin: 1px;
+        }
+
+        .hamburger.active span:nth-child(1), footer .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg);
+        }
+
+        .hamburger.active span:nth-child(2), footer .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active span:nth-child(3), footer .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg);
+        }
+
+        footer .hamburger span {
+            background: #ADD8E6; /* Set to black for footer */
+        }
+
+
+            .hero {
+                display: flex;
+                justify-content: center;
+                align-items: center; /* Center content vertically */
+                padding: 10px;
+                margin-top: 0; /* Ensure there's no margin pushing the hero down */
+            }
+
+            .hero-text {
+                font-size: 4rem;
+                text-align: center; /* Center text horizontally */
+            }
+
+            .portfolio-title h1 {
+                font-size: 1.8rem;
+            }
+
+            .projects {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .project {
+                width: 100%;
+            }
+
+            .filter-group {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .filter-label {
+                margin-right: 0;
+                margin-bottom: 10px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero {
+                display: flex;
+                justify-content: center;
+                align-items: center; /* Center content vertically */
+                padding: 10px;
+                margin-top: 0; /* Ensure there's no margin pushing the hero down */
+            }
+
+            .hero-text {
+                font-size: 3rem;
+                text-align: center; /* Center text horizontally */
+            }
+
+            .portfolio-title h1 {
+                font-size: 1.5rem;
+            }
+
+            .branding span {
+                font-size: 0.8rem;
+            }
+
+            .filter-group {
+                width: 100%;
+                align-items: center;
+            }
+
+            .filter-buttons-line {
+                justify-content: center;
+            }
+    nav a {
+        padding: 8px 0;
+    }
+        }
+
     </style>
 </head>
 <body>
@@ -320,11 +475,16 @@
             <div class="branding">
                 <span><b>Varsha Sundararaman</b> | Product Manager</span>
             </div>
+            <div class="hamburger" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
             <nav>
-                <a href="file:///C:/Users/Varsha/OneDrive/Documents/Personal/Personal%20Website/indexvs.html">Home</a>
-                <a href="#resume">Resume</a>
-                <a href="file:///C:/Users/Varsha/OneDrive/Documents/Personal/Personal%20Website/portfoliovs.html">Portfolio</a>
-                <a href="#contact">Contact</a>
+                <a href="index.html">Home</a>
+                <a href="resumevs.html">Resume</a>
+                <a href="portfoliovs.html">Portfolio</a>
+                <a href="contactvs.html">Contact</a>
             </nav>
         </div>
     </header>
@@ -367,13 +527,20 @@
     </div>
 
     <footer>
-        <div class="site-name">Varsha Sundararaman</div>
-        <nav>
-            <a href="#">About</a>
-            <a href="#">Blog</a>
-            <a href="#">Projects</a>
-            <a href="#">Contact</a>
-        </nav>
+        <div class="container">
+            <div class="hamburger" onclick="toggleFooterMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <div class="site-name">Varsha Sundararaman</div>
+            <nav>
+                <a href="index.html">Home</a>
+                <a href="resumevs.html">Resume</a>
+                <a href="portfoliovs.html">Portfolio</a>
+                <a href="contactvs.html">Contact</a>
+            </nav>
+        </div>
     </footer>
 
     <script>
@@ -444,47 +611,46 @@
         }
 
         const projectsData = [
-                        {
-                href: "file:///C:/Users/Varsha/OneDrive/Documents/Personal/Personal%20Website/casestudyvs1.html",
-                imgSrc: "C:/Users/Varsha/OneDrive/Documents/Personal/Personal Website/Images/Sample African Fintech 2.jpg",
+            {
+                href: "casestudyvs1.html",
+                imgSrc: "Images/Sample African FinTech 2.jpg",
                 imgAlt: "Market Research in FinTech",
                 title: "Market Research in FinTech",
-                description: "Detailed market analysis in the African FinTech sector",
+                description: "My deep-dive into the world of financial inclusion",
                 tags: "CustomerInterviews MarketResearch Personal"
             },
-	    {
+       /*     {
                 href: "project1.html",
                 imgSrc: "images/project1.jpg",
-                imgAlt: "Goldman Sachs Project 1",
-                title: "Goldman Sachs Project 1",
-                description: "Creating a smoother post-purchase experience for shoppers",
+                imgAlt: "Goldman Sachs Project",
+                title: "Goldman Sachs Project",
+                description: "COMING SOON",
                 tags: "Goldman"
             },
             {
                 href: "project5.html",
                 imgSrc: "images/project5.jpg",
-                imgAlt: "Amazon Project 1",
-                title: "Amazon Project 1",
-                description: "Innovative e-commerce solutions for global customers",
+                imgAlt: "Amazon Project",
+                title: "Amazon Project",
+                description: "COMING SOON",
                 tags: "Amazon"
             },
-
             {
                 href: "project2.html",
                 imgSrc: "images/project2.jpg",
-                imgAlt: "Goldman Sachs Project 2",
-                title: "Goldman Sachs Project 2",
-                description: "Creating an approachable brand in an inaccessible industry",
+                imgAlt: "Goldman Sachs Project",
+                title: "Goldman Sachs Project",
+                description: "COMING SOON",
                 tags: "Goldman"
             },
             {
                 href: "project6.html",
                 imgSrc: "images/project6.jpg",
-                imgAlt: "Amazon Project 2",
-                title: "Amazon Project 2",
-                description: "Advanced machine learning models for data insights",
+                imgAlt: "Amazon Project",
+                title: "Amazon Project",
+                description: "COMING SOON",
                 tags: "Amazon"
-            }
+            } */
         ];
 
         function renderProjects(projects) {
@@ -521,6 +687,38 @@
             });
             filterSelection();
         }
+
+        function toggleMenu() {
+            const nav = document.querySelector('header nav');
+            const hamburger = document.querySelector('header .hamburger');
+            nav.classList.toggle('active');
+            hamburger.classList.toggle('active');
+        }
+
+        function toggleFooterMenu() {
+            const nav = document.querySelector('footer nav');
+            const hamburger = document.querySelector('footer .hamburger');
+            nav.classList.toggle('active');
+            hamburger.classList.toggle('active');
+        }
+
+        // Close menu when clicking outside
+        document.addEventListener('click', function(event) {
+            const header = document.querySelector('header');
+            const footer = document.querySelector('footer');
+            const headerNav = document.querySelector('header nav');
+            const footerNav = document.querySelector('footer nav');
+            
+            if (!header.contains(event.target) && !headerNav.contains(event.target)) {
+                headerNav.classList.remove('active');
+                document.querySelector('header .hamburger').classList.remove('active');
+            }
+            
+            if (!footer.contains(event.target) && !footerNav.contains(event.target)) {
+                footerNav.classList.remove('active');
+                document.querySelector('footer .hamburger').classList.remove('active');
+            }
+        });
 
         renderProjects(projectsData);
     </script>
