@@ -19,6 +19,8 @@
             scroll-behavior: smooth;
             min-height: 100vh;
             box-sizing: border-box;
+            opacity: 0;
+            animation: fadeInPage 2s ease-in forwards;
         }
 
         header {
@@ -46,6 +48,7 @@
             align-items: center;
             opacity: 0;
             animation: fadeIn 1s ease-in forwards;
+            animation-delay: 1s;
         }
 
         .branding span {
@@ -63,6 +66,7 @@
             font-size: 1rem;
             opacity: 0;
             animation: fadeIn 1s ease-in forwards;
+            animation-delay: 1s;
         }
 
         nav a:hover {
@@ -77,6 +81,8 @@
             justify-content: center;
             padding: 80px 20px 20px;
             box-sizing: border-box;
+            opacity: 0;
+            animation: fadeInPage 2s ease-in forwards;
         }
 
         .resume-title {
@@ -102,17 +108,17 @@
             margin-bottom: 40px;
         }
 
-        iframe {
+        embed {
             width: 100%;
             max-width: 800px;
             height: 80vh;
             border: none;
         }
 
-        .fallback-message {
+        .fallback-link {
             display: none;
             text-align: center;
-            margin: 40px 20px;
+            margin: 20px 0;
         }
 
         footer {
@@ -124,6 +130,9 @@
             color: #000000;
             width: 100%;
             box-sizing: border-box;
+            opacity: 0;
+            animation: fadeIn 1s ease-in forwards;
+            animation-delay: 1s;
         }
 
         footer nav {
@@ -143,17 +152,6 @@
         .hamburger, footer .hamburger {
             display: none;
         }
-
-        @media (max-width: 1000px) {
-            .resume-container iframe {
-                display: none;
-            }
-
-            .fallback-message {
-                display: block;
-            }
-        }
-
 
         @media (max-width: 768px) {
             body, html {
@@ -211,6 +209,7 @@
                 width: 100%;
                 text-align: center;
                 font-size: 1.2rem;
+                color: #FFFFFF;
             }
 
             .hamburger, footer .hamburger {
@@ -254,6 +253,14 @@
             .resume-title h1 {
                 font-size: 1.8rem;
             }
+
+            embed {
+                display: none;
+            }
+
+            .fallback-link {
+                display: block;
+            }
         }
 
         @media (max-width: 480px) {
@@ -267,6 +274,12 @@
         }
 
         @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeInPage {
             to {
                 opacity: 1;
             }
@@ -285,10 +298,10 @@
                 <span></span>
             </div>
             <nav>
-                <a href="file:///C:/Users/Varsha/OneDrive/Documents/Personal/Personal%20Website/index.html">Home</a>
-                <a href="file:///C:/Users/Varsha/OneDrive/Documents/Personal/Personal%20Website/resume.html">Resume</a>
-                <a href="file:///C:/Users/Varsha/OneDrive/Documents/Personal/Personal%20Website/portfoliovs.html">Portfolio</a>
-                <a href="file:///C:/Users/Varsha/OneDrive/Documents/Personal/Personal%20Website/contact.html">Contact</a>
+                <a href="index.html">Home</a>
+                <a href="resume.html">Resume</a>
+                <a href="portfoliovs.html">Portfolio</a>
+                <a href="contact.html">Contact</a>
             </nav>
         </div>
     </header>
@@ -298,9 +311,9 @@
             <h1>My Resume</h1>
             <p>Below is a detailed view of my professional journey.</p>
         </div>
-        <iframe src="file:///C:/Users/Varsha/Downloads/Varsha%20Sundararaman,%20Resume.pdf" title="Varsha Sundararaman's Resume"></iframe>
-        <div class="fallback-message">
-            <p>Unfortunately, my resume will not show on smaller screens. Feel free to download it <a href="file:///C:/Users/Varsha/Downloads/Varsha%20Sundararaman,%20Resume.pdf">here</a>.</p>
+        <embed src="PDFs/Varsha Sundararaman Resume.pdf" type="application/pdf" title="Varsha Sundararaman's Resume"></embed>
+        <div class="fallback-link">
+            <p>If the resume doesn't load, you can download it <a href="PDFs/Varsha Sundararaman Resume.pdf">here</a>.</p>
         </div>
     </div>
 
@@ -313,10 +326,10 @@
             </div>
             <div class="site-name">Varsha Sundararaman</div>
             <nav>
-                <a href="#">Home</a>
-                <a href="#">Resume</a>
-                <a href="#">Portfolio</a>
-                <a href="#">Contact</a>
+                <a href="index.html">Home</a>
+                <a href="resumevs.html">Resume</a>
+                <a href="portfoliovs.html">Portfolio</a>
+                <a href="contactvs.html">Contact</a>
             </nav>
         </div>
     </footer>
