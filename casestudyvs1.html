@@ -18,20 +18,25 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            overflow-x: hidden;
+            overflow-x: hidden; /* Prevent horizontal scrolling */
             scroll-behavior: smooth;
+        }
+
+        * {
+            max-width: 100%;
+            box-sizing: border-box;
         }
 
         header {
             padding: 20px;
-            background-color: transparent;
+            background-color: black;
             color: #FFFFFF;
             width: 100%;
             z-index: 1000;
             display: flex;
-            justify-content: center;
+            justify-content: space-between;
             align-items: center;
-            position: absolute;
+            position: relative;
             top: 0;
         }
 
@@ -53,13 +58,11 @@
         }
 
         .branding span {
-            margin: 0 0px;
+            margin: 0 5px;
             color: #FFFFFF;
             font-family: 'DM Sans', serif;
             font-weight: 400;
             font-size: 1.1rem;
-            opacity: 0;
-            animation: fadeIn 1s ease-in forwards;
         }
 
         nav {
@@ -84,13 +87,47 @@
         }
 
         nav a:hover {
-            color: #a8d5ba;
+            color: #ADD8E6;
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            justify-content: space-around;
+            width: 2rem;
+            height: 2rem;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+        }
+
+        .hamburger span {
+            width: 2rem;
+            height: 0.25rem;
+            background: #FFFFFF;
+            border-radius: 10px;
+            transition: all 0.3s linear;
+            position: relative;
+            transform-origin: 1px;
+        }
+
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg);
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg);
         }
 
         .hero {
             height: 100vh;
             width: 100%;
-            max-width: 1100px;
+            max-width: 100%;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -119,9 +156,9 @@
 
         .hero .back-button {
             position: absolute;
-            top: 80px;
-            left: 20px;
-            display: inline-block;
+            top: 0px;
+            left: 80px;
+            display: flex;
             padding: 10px 20px;
             background-color: #000000;
             color: #FFFFFF;
@@ -129,7 +166,8 @@
             font-family: 'DM Sans', sans-serif;
             font-size: 1rem;
             border-radius: 50px;
-            align-items: center;
+            justify-items: left;
+            align-items: left;
             gap: 5px;
             border: 2px solid transparent;
             border-color: #FFFFFF;
@@ -227,15 +265,12 @@
         .portfolio-title .buttons a,
         .summary-box a {
             display: inline-block;
-            margin-top: 20px;
-            padding: 10px 60px;
             background-color: #FFFFFF;
             color: #000000;
             text-decoration: none;
             font-family: 'DM Sans', sans-serif;
             font-size: 1rem;
             border-radius: 50px;
-            display: flex;
             align-items: center;
             text-align: center;
             justify-content: center;
@@ -291,7 +326,7 @@
             font-family: 'DM Sans', serif;
             font-size: 1rem;
             line-height: 1.6;
-            margin-bottom: 10px;
+            margin-bottom: 2.5rem;
             color: #FFFFFF;
         }
 
@@ -320,7 +355,7 @@
             width: 300px;
             position: sticky;
             top: 20px;
-            margin-bottom: 100px;
+	    margin-bottom: 2.5rem;
         }
 
         .summary-box h2 {
@@ -336,6 +371,7 @@
         .deliverables-section {
             display: flex;
             flex-direction: column;
+	    text-align: left;
             align-items: flex-start;
             justify-content: center;
             height: auto;
@@ -359,17 +395,18 @@
             font-family: 'DM Sans', serif;
             font-size: 1rem;
             line-height: 1.6;
-	    margin-top: 0px;
-            margin-bottom: 20px;
+            margin-top: 0px;
+            margin-bottom: 100px;
             color: #FFFFFF;
         }
 
         .images {
             display: flex;
-            margin-top: -80px;
+            margin-top: 1rem;
+	    margin-bottom:2rem;
             flex-direction: column;
             align-items: center;
-            gap: 20px;
+            gap: 2rem;
         }
 
         .image-container {
@@ -406,19 +443,19 @@
             text-align: center;
         }
 
-.end-to-end-section img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 2px;
-    display: block;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
+        .end-to-end-section img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 2px;
+            display: block;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
 
-.end-to-end-image-container {
-    display: flex;
-    align-items: flex-start; /* Align the image at the start (top) of the container */
-    width: 100%;
-}
+        .end-to-end-image-container {
+            display: flex;
+            align-items: flex-start;
+            width: 100%;
+        }
 
         .overlay {
             position: absolute;
@@ -478,66 +515,122 @@
         }
 
         @media (max-width: 768px) {
-            .main {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .left-column {
-                margin-right: 0;
-                width: 100%;
-                align-items: center;
-            }
-
-            .right-column {
-                max-width: 100%;
-                align-items: center;
-                text-align: center;
-                position: static;
-            }
-
-            .case-study-header-right h1 {
-                font-size: 2rem;
-            }
-
-            .case-study-section h2 {
-                font-size: 1.2rem;
-            }
-
-            .case-study-section p {
-                text-align: left;
-            }
-
-            .summary-box {
-                position: relative;
-                left: auto;
-                top: auto;
-                transform: none;
-                margin: 20px auto;
-                width: 80%;
-            }
-
-            #section-2 {
-                margin: 20px auto 20px auto;
-            }
-
-            .deliverables-section {
-                margin-left: 0;
-            }
-
-            footer {
-                flex-direction: column;
-                align-items: flex-start;
+            body {
+                overflow-x: hidden; /* Prevent horizontal scrolling */
             }
 
             nav {
+                display: none;
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: rgba(0, 0, 0, 0.9);
                 flex-direction: column;
-                align-items: flex-start;
+                justify-content: center;
+                align-items: center;
+                z-index: 1000;
+                transition: opacity 0.3s ease-in-out;
+                opacity: 0;
+                pointer-events: none;
+                visibility: hidden;
             }
 
-            nav a {
-                padding: 10px 0;
+            nav.active {
+                display: flex; /* Show nav when active */
+                opacity: 1;
+                pointer-events: auto;
+                visibility: visible;
+                max-width: 100%;
             }
+
+            .branding span {
+                font-size: 0.9rem;
+            }
+
+            .container,
+            .hero,
+            .main,
+            #section-2,.deliverables-section, .summary-box{
+                width: 100%;
+                max-width: 100%; /* Ensure no element exceeds the viewport width */
+                padding: 0 20px; /* Add padding to avoid content touching the edges */
+                box-sizing: border-box;
+            }
+            .main, .deliverables-section {
+                flex-direction: column;
+                align-items: center; /* Center child elements */
+            }
+
+            .left-column,
+            .right-column {
+                width: 100%;
+                margin: 0; /* Remove margins */
+                align-items: center; /* Center content */
+                text-align: center;
+            }
+
+            img {
+                max-width: 100%;
+                height: auto;
+                display: block;
+            }
+
+            .hamburger {
+                display: flex;
+                z-index: 10001;
+            }
+
+            .hamburger span,
+            footer .hamburger span {
+                width: 2rem;
+                height: 0.25rem;
+                background: #FFFFFF; /* Default color for header */
+                border-radius: 10px;
+                transition: all 0.3s linear;
+                position: relative;
+                transform-origin: 1px;
+            }
+
+            .hero .back-button {
+                position: relative;
+                top: auto;
+                left: auto;
+                margin-top: 10px;
+            }
+        }
+
+        .end-to-end-section {
+            flex-direction: column;
+            width: 100%;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .end-to-end-section .left-column,
+        .end-to-end-section .right-column {
+            width: 100%;
+            margin: 0;
+        }
+
+        .portfolio-title .buttons {
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .portfolio-title .buttons a {
+            margin: 5px;
+        }
+
+        .image-container {
+            max-width: 100%;
+        }
+
+        .large-image,
+        .small-image {
+            width: 100%;
+            max-width: 400px;
         }
 
         @media (max-width: 480px) {
@@ -545,20 +638,27 @@
                 font-size: 1.5rem;
             }
 
-            .case-study-section h2 {
+            .case-study-section h2, .deliverables-section h2 {
                 font-size: 1rem;
             }
 
-            .case-study-section p {
+            .case-study-section p, .deliverables-section p {
                 text-align: left;
-            }
-
-            .deliverables-section {
-                margin: 0 10px;
             }
 
             nav a {
                 padding: 8px 0;
+            }
+
+            .hero .back-button {
+                margin-top: 10px;
+                font-size: 0.8rem;
+                padding: 8px 16px;
+            }
+
+            .hero .summary-button {
+                font-size: 0.8rem;
+                padding: 8px 16px;
             }
         }
 
@@ -648,6 +748,11 @@
             <div class="branding">
                 <span><b>Varsha Sundararaman</b> | Product Manager</span>
             </div>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
             <nav>
                 <a href="index.html">Home</a>
                 <a href="PDFs/Varsha Sundararaman Resume.pdf">Resume</a>
@@ -658,7 +763,7 @@
     </header>
 
     <div class="hero">
-        <a href="portfoliovs.html" class="back-button">
+        <a href="file:///C:/Users/Varsha/OneDrive/Documents/Personal/Personal%20Website/portfoliovs.html" class="back-button">
             <i class="fas fa-arrow-left"></i> Back to Portfolio
         </a>
         <h1>Market Research in FinTech</h1>
@@ -702,7 +807,7 @@
                 </div>
                 <div class="right-column">
                     <div class="end-to-end-image-container">
-                        <img src="images/Original-Thesis.jpg" alt="Key Image" class="end-to-end-image">
+                        <img src="C:/Users/Varsha/OneDrive/Documents/Personal/Personal Website/Images/Original-Thesis.jpg" alt="Key Image" class="end-to-end-image">
                     </div>
                     <div class="caption">Early Investment Memo</div>
                 </div>
@@ -750,23 +855,23 @@
         <div class="right-column">
             <div class="images">
                 <div class="image-container">
-                    <a href="PDFs/African FinTech Presentation.pdf" target="_blank">
-                        <img src="images/Sample African FinTech.jpg" alt="African FinTech Solutions" class="large-image">
+                    <a href="C:/Users/Varsha/OneDrive/Documents/Personal/Personal Website/Images/Sample African FinTech.jpg" target="_blank">
+                        <img src="C:/Users/Varsha/OneDrive/Documents/Personal/Personal Website/Images/Sample African FinTech.jpg" alt="African FinTech Solutions" class="large-image">
                         <div class="overlay">See More</div>
                     </a>
                     <div class="caption">African FinTech Solutions</div>
                 </div>
                 <div class="see-others-container">
                     <div class="image-container">
-                        <a href="PDFs/Codat Company Analysis.pdf" target="_blank">
-                            <img src="images/Sample Codat Image.jpg" alt="Codat Research" class="small-image">
+                        <a href="C:/Users/Varsha/OneDrive/Documents/Personal/Personal Website/Images/Sample Codat Image.jpg" target="_blank">
+                            <img src="C:/Users/Varsha/OneDrive/Documents/Personal/Personal Website/Images/Sample Codat Image.jpg" alt="Codat Research" class="small-image">
                             <div class="overlay">See More</div>
                         </a>
                         <div class="caption">Codat Research</div>
                     </div>
                     <div class="image-container">
-                        <a href="PDFs/Chime Company Analysis.pdf" target="_blank">
-                            <img src="images/Sample Chime Image.jpg" alt="Chime Research" class="small-image">
+                        <a href="C:/Users/Varsha/OneDrive/Documents/Personal/Personal Website/Images/Sample Chime Image.jpg" target="_blank">
+                            <img src="C:/Users/Varsha/OneDrive/Documents/Personal/Personal Website/Images/Sample Chime Image.jpg" alt="Chime Research" class="small-image">
                             <div class="overlay">See More</div>
                         </a>
                         <div class="caption">Chime Research</div>
@@ -777,13 +882,20 @@
     </div>
 
     <footer>
-        <div class="site-name">Varsha Sundararaman</div>
-        <nav>
-            <a href="index.html">Home</a>
-            <a href="PDFs/Varsha Sundararaman Resume.pdf">Resume</a>
-            <a href="portfoliovs.html">Portfolio</a>
-            <a href="contactvs.html">Contact</a>
-        </nav>
+        <div class="container">
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <div class="site-name">Varsha Sundararaman</div>
+            <nav>
+                <a href="index.html">Home</a>
+                <a href="PDFs/Varsha Sundararaman Resume.pdf">Resume</a>
+                <a href="portfoliovs.html">Portfolio</a>
+                <a href="contactvs.html">Contact</a>
+            </nav>
+        </div>
     </footer>
 
     <script>
@@ -812,8 +924,40 @@
             lazyLoadElements.forEach(element => {
                 observer.observe(element);
             });
+
+            const hamburger = document.querySelector('.hamburger');
+            const headerNav = document.querySelector('header nav');
+            const footerNav = document.querySelector('footer nav');
+            const footerHamburger = document.querySelector('footer .hamburger');
+
+            hamburger.addEventListener('click', function() {
+                headerNav.classList.toggle('active');
+                hamburger.classList.toggle('active');
+            });
+
+            footerHamburger.addEventListener('click', function() {
+                footerNav.classList.toggle('active');
+                this.classList.toggle('active');
+            });
+
+            // Close menu when clicking outside
+            document.addEventListener('click', function(event) {
+                const header = document.querySelector('header');
+                const footer = document.querySelector('footer');
+
+                if (!header.contains(event.target) && !headerNav.contains(event.target)) {
+                    headerNav.classList.remove('active');
+                    hamburger.classList.remove('active');
+                }
+
+                if (!footer.contains(event.target) && !footerNav.contains(event.target)) {
+                    footerNav.classList.remove('active');
+                    footerHamburger.classList.remove('active');
+                }
+            });
         });
     </script>
+
 </body>
 
 </html>
